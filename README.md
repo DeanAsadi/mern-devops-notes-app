@@ -213,6 +213,23 @@ MongoDB healthy -> Backend healthy -> Frontend starts
 
 This avoids starting the backend before MongoDB is ready.
 
+
+
+## Docker Images
+
+Docker images are automatically built and published to Docker Hub by GitHub Actions when changes are pushed to the `main` branch.
+
+### Backend Image
+
+```text
+DOCKERDEEN26/mern-notes-backend:latest
+DOCKERDEEN26/mern-notes-frontend:latest
+```
+
+
+
+
+
 ## Useful Commands
 
 Rebuild all services:
