@@ -9,7 +9,7 @@ on:
       - main
 
 env:
-  BACKEND_IMAGE: ${{ secrets.DOCKERHUB_DOCKERDEEN26}}/mern-notes-backend
+  BACKEND_IMAGE: ${{ secrets.DOCKERHUB_DOCKERDEEN26 }}/mern-notes-backend
   FRONTEND_IMAGE: ${{ secrets.DOCKERHUB_DOCKERDEEN26 }}/mern-notes-frontend
 
 jobs:
