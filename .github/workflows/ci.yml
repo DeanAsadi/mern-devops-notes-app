@@ -9,8 +9,8 @@ on:
       - main
 
 env:
-  BACKEND_IMAGE: ${{ secrets.DOCKERHUB_DOCKERDEEN26 }}/mern-notes-backend
-  FRONTEND_IMAGE: ${{ secrets.DOCKERHUB_DOCKERDEEN26 }}/mern-notes-frontend
+  BACKEND_IMAGE: dockerdeen26/mern-notes-backend
+  FRONTEND_IMAGE: dockerdeen26/mern-notes-frontend
 
 jobs:
   validate:
@@ -61,10 +61,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Log in to Docker Hub
+      - name: Log in to Docker Hub using github-actions-mern-notes token
         uses: docker/login-action@v3
         with:
-          username: ${{ secrets.DOCKERHUB_DOCKERDEEN26 }}
+          username: dockerdeen26
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Generate Docker image metadata for backend
