@@ -1,5 +1,9 @@
 # MERN DevOps Notes App
 
+![CI](https://github.com/DeanAsadi/mern-devops-notes-app/actions/workflows/ci.yml/badge.svg)
+
+
+
 A full-stack MERN notes application built as a DevOps portfolio project.
 
 The project demonstrates how to containerize a React frontend, Node.js/Express backend, and MongoDB database using Docker and Docker Compose. It also includes an Nginx reverse proxy, persistent MongoDB storage, environment-based configuration, and container healthchecks.
