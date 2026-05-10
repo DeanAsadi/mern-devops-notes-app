@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: DOCKERDEEN26/mern-notes-backend:latest
+          image: dockerdeen26/mern-notes-backend:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 5000
