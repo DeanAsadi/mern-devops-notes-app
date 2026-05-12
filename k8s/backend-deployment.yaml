@@ -21,6 +21,12 @@ spec:
             - containerPort: 5000
           env:
             - name: PORT
-              value: "5000"
+              valueFrom:
+                configMapKeyRef:
+                  name: backend-config
+                  key: PORT
             - name: MONGO_URI
-              value: "mongodb://mongodb-service:27017/notesdb"
+              valueFrom:
+                secretKeyRef:
+                  name: backend-secret
+                  key: MONGO_URI
