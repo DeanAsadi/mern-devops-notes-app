@@ -9,6 +9,7 @@ on:
       - main
 
 env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
   BACKEND_IMAGE: dockerdeen26/mern-notes-backend
   FRONTEND_IMAGE: dockerdeen26/mern-notes-frontend
 
@@ -65,18 +66,18 @@ jobs:
         with:
           version: v1.34.3
 
-      - name: Validate Kubernetes YAML client-side
+      - name: Validate Kubernetes YAML syntax only
         run: |
-          kubectl apply --dry-run=client --validate=false -f k8s/namespace.yaml
-          kubectl apply --dry-run=client --validate=false -f k8s/backend-configmap.yaml
-          kubectl apply --dry-run=client --validate=false -f k8s/backend-secret.yaml
-          kubectl apply --dry-run=client --validate=false -f k8s/mongodb-deployment.yaml
-          kubectl apply --dry-run=client --validate=false -f k8s/mongodb-service.yaml
-          kubectl apply --dry-run=client --validate=false -f k8s/backend-deployment.yaml
-          kubectl apply --dry-run=client --validate=false -f k8s/backend-service.yaml
-          kubectl apply --dry-run=client --validate=false -f k8s/frontend-deployment.yaml
-          kubectl apply --dry-run=client --validate=false -f k8s/frontend-service.yaml
-          kubectl apply --dry-run=client --validate=false -f k8s/ingress.yaml
+          kubectl create --dry-run=client --validate=false -f k8s/namespace.yaml
+          kubectl create --dry-run=client --validate=false -f k8s/backend-configmap.yaml
+          kubectl create --dry-run=client --validate=false -f k8s/backend-secret.yaml
+          kubectl create --dry-run=client --validate=false -f k8s/mongodb-deployment.yaml
+          kubectl create --dry-run=client --validate=false -f k8s/mongodb-service.yaml
+          kubectl create --dry-run=client --validate=false -f k8s/backend-deployment.yaml
+          kubectl create --dry-run=client --validate=false -f k8s/backend-service.yaml
+          kubectl create --dry-run=client --validate=false -f k8s/frontend-deployment.yaml
+          kubectl create --dry-run=client --validate=false -f k8s/frontend-service.yaml
+          kubectl create --dry-run=client --validate=false -f k8s/ingress.yaml
 
   push-images:
     name: Build and push Docker images
