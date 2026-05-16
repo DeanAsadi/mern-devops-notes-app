@@ -100,7 +100,7 @@ jobs:
           push: true
           tags: ${{ steps.frontend_meta.outputs.tags }}
           labels: ${{ steps.frontend_meta.outputs.labels }}
-          
+
   validate-kubernetes:
     name: Validate Kubernetes manifests
     runs-on: ubuntu-latest
@@ -110,10 +110,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up kubectl
-        uses: azure/setup-kubectl@v4
-        with:
-          version: latest
+      - name: Install kubectl
+        run: |
+          curl -LO "https://dl.k8s.io/release/v1.34.0/bin/linux/amd64/kubectl"
+          chmod +x kubectl
+          sudo mv kubectl /usr/local/bin/kubectl
+          kubectl version --client
 
       - name: Validate Kubernetes YAML client-side
-        run: kubectl apply --dry-run=client --validate=false -f k8s/
+        run: |
+          kubectl apply --dry-run=client --validate=false -f k8s/
