@@ -321,6 +321,30 @@ And backend logs:
 docker compose logs backend
 ```
 
+# The project includes a Kubernetes troubleshooting guide with commands for:
+
+```java
+
+
+- pod inspection
+- logs
+- events
+- rollout status
+- rollout rollback
+- ingress debugging
+- service debugging
+- probe troubleshooting
+
+See:
+
+docs/troubleshooting.md
+
+```
+
+------
+
+## 
+
 ## What I Learned
 
 This project demonstrates:
@@ -347,3 +371,5 @@ Planned improvements:
 - Readiness and liveness probes
 - Resource requests and limits
 - Monitoring and logging
+
+## 
